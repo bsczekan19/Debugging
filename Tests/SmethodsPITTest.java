@@ -55,7 +55,7 @@ public class SmethodsPITTest {
     }
 
     @Test
-    public void testSelectStep1() {
+    public void testSelectFirstStep() {
         Smethods.start(sudoku);
         ArrayList<Integer> zeros = new ArrayList<>();
         // first cell, fill with number 3
@@ -91,11 +91,18 @@ public class SmethodsPITTest {
     }
 
     @Test
-    public void testTrySudokuOver81Step() {
+    public void testTrySudoku81Step() {
         Smethods.start(sudoku);
-        Smethods.trysudoku(sudoku, (byte)82);
-        assertEquals(82,MySudoku.step);
+        byte[][] copy = new byte[729][82];
+        for (int i = 0; i < 729; i++) {
+            System.arraycopy( sudoku[i], 0, copy[i], 0, sudoku[i].length );
+        }
+        assertArrayEquals(copy,sudoku);
+        Smethods.trysudoku(sudoku, (byte)81);
+        assertEquals(81,MySudoku.step);
+        assertArrayEquals(copy,sudoku);
     }
+
 
     @Test
     public void testTrySudokuInvalidStartStep() {
