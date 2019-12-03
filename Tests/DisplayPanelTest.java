@@ -109,9 +109,15 @@ class DisplayPanelTest {
         assertEquals(45, MySudoku.step);
     }
 
+    // TODO: figure out why MySudoku.step isn't properly being updated to 81 after SS action
     @Test
     void actionPerformedSSTest() {
-
+        ActionEvent easy = new ActionEvent(ES, 2, ES.getActionCommand());
+        ActionEvent e = new ActionEvent(SS, 1, SS.getActionCommand());
+        dp.actionPerformed(easy);
+        assertEquals(45, MySudoku.step);
+        dp.actionPerformed(e);
+        assertEquals(81, MySudoku.step);
     }
 
     @Test
