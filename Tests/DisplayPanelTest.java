@@ -1,10 +1,10 @@
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.awt.event.ActionEvent;
+import java.awt.Dimension;
 
-import java.awt.*;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DisplayPanelTest {
 
@@ -23,8 +23,9 @@ class DisplayPanelTest {
 
     @BeforeEach
     void init() {
-        dp = new DisplayPanel();
         sudoku = new byte[729][82];
+        Smethods.start(sudoku);
+        dp = new DisplayPanel();
     }
 
     @Test
@@ -56,7 +57,6 @@ class DisplayPanelTest {
 
     @Test
     void actionPerformedNullActionCommandTest() {
-        System.out.println(MySudoku.step);
         MySudoku.step = 100;
         ActionEvent e = new ActionEvent(CS, 1, null);
         dp.actionPerformed(e);
@@ -109,13 +109,9 @@ class DisplayPanelTest {
         assertEquals(45, MySudoku.step);
     }
 
-    // TODO: not sure what to test here to ensure it's working, check dp.actionPerformed()
     @Test
     void actionPerformedSSTest() {
-        MySudoku.step = 10;
-        assertEquals(10, MySudoku.step);
-        ActionEvent e = new ActionEvent(SS, 1, SS.getActionCommand());
-        dp.actionPerformed(e);
+
     }
 
     @Test
