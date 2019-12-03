@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -273,10 +274,7 @@ class SmethodsTest {
         for(int i = 0; i < 729; i++) {
             sudoku[i][0] = (byte)4;
         }
-        Smethods.trysudoku(sudoku, (byte)0);
-        /*assertTimeoutPreemptively(Duration.ofMillis(5000), () -> {
-            Smethods.trysudoku(sudoku, (byte)0);
-        });*/
+        assertTimeoutPreemptively(Duration.ofMillis(5000), () -> Smethods.trysudoku(sudoku, (byte)0));
     }
 
     // test trySudoku on a valid board with 1 as start step
