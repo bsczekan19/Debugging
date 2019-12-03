@@ -113,10 +113,10 @@ class DisplayPanelTest {
     @Test
     void actionPerformedSSTest() {
         ActionEvent easy = new ActionEvent(ES, 2, ES.getActionCommand());
-        ActionEvent e = new ActionEvent(SS, 1, SS.getActionCommand());
+        ActionEvent solve = new ActionEvent(SS, 1, SS.getActionCommand());
         dp.actionPerformed(easy);
         assertEquals(45, MySudoku.step);
-        dp.actionPerformed(e);
+        dp.actionPerformed(solve);
         assertEquals(81, MySudoku.step);
     }
 
