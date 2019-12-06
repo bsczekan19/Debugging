@@ -13,8 +13,8 @@ public class MySudoku {
 	public static byte[][] sudoku = new byte[729][82];  //global array for sudoku solution
 	public static byte step = 0; //global variable for solution step
 
-	private static final int WindowWidth = 785; //its 777 pixels wide
-	private static final int WindowHeight = 645; //its 636 pixels high
+	private static final int WindowWidth = 777; //its 777 pixels wide
+	private static final int WindowHeight = 636; //its 636 pixels high
 	
     public static void ShowGUI() {
     	    Smethods.start(sudoku); //start array at step 0 has no numbers selected
