@@ -73,6 +73,32 @@ class DisplayPanelTest {
         assertEquals(currentStep, MySudoku.step);
     }
 
+    // Test with the x value equal to the boundary of the sudoku board
+    @Test
+    void selectNumberOnXBoundaryTest() {
+        int currentStep = MySudoku.step;
+        dp.selectNumber(203, 100);
+        assertEquals(currentStep, MySudoku.step);
+    }
+
+    // Test with the x value one above the boundary of the sudoku board
+    @Test
+    void selectNumberAboveXBoundaryTest() {
+        int currentStep = MySudoku.step;
+        dp.selectNumber(204, 100);
+        assertEquals(currentStep + 1, MySudoku.step);
+    }
+
+    // Test selecting a number with x or y above the bounds of the boarda
+    @Test
+    void selectNumberAboveBoundsTest() {
+        int currentStep = MySudoku.step;
+        dp.selectNumber(1000, 100);
+        assertEquals(currentStep, MySudoku.step);
+        dp.selectNumber(300, 1000);
+        assertEquals(currentStep, MySudoku.step);
+    }
+
     // Test with a valid x y combination
     @Test
     void selectNumberValidXYTest() {
