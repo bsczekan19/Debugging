@@ -67,7 +67,8 @@ public class DisplayPanel extends JPanel implements ActionListener {
     } // end of constructor
 
     // called method on mouse click
-    private void selectNumber(int x, int y) {
+    // changed access to public for testing
+    public void selectNumber(int x, int y) {
     	int NumberPosition[] = {3,63,124,187,248,309,372,433,494}; // number position
     	final byte pSNumberY = 19; // the spacing for the numbers
 
